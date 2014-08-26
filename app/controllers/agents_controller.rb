@@ -8,7 +8,6 @@ class AgentsController < ApplicationController
   end
   def create
     @agent = Agent.create(name: params[:agent][:name])
-    set_default_contact(@agent)
     redirect_to agents_path
   end
   def edit; end
@@ -27,9 +26,5 @@ class AgentsController < ApplicationController
 
   def set_agent
     @agent = Agent.find(params[:id])
-  end
-
-  def set_default_contact(agent)
-    agent.contacts.create(email: "#{agent.name}-default@gmail.com")
   end
 end
