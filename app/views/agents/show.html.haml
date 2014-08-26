@@ -1,4 +1,7 @@
 %h1= @agent.name
 - @agent.contacts.each do |contact|
-  %p= contact.email
+  %p
+    = "(default)" if @agent.default_contact_id == contact.id
+    = contact.email
+    = link_to "set as default", set_default_contact_agent_path(@agent, contact_id: contact.id) 
 
