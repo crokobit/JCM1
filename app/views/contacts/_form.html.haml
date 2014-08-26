@@ -1,0 +1,7 @@
+= form_for @contact do |f|
+  = f.label :email
+  = f.text_field :email
+  = f.label :agent
+  = f.select(:agent, options_from_collection_for_select(Agent.all, :id, :name, @contact.try(:agent).try(:id)), include_blank: true)
+  = f.submit
+

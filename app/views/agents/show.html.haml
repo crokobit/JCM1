@@ -1,0 +1,4 @@
+%h1= @agent.name
+- @agent.contacts.each do |contact|
+  %p= contact.email
+

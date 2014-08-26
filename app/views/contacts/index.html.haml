@@ -1,0 +1,11 @@
+= link_to "list all agent", agents_path
+= link_to "list all contact", contacts_path
+%p= link_to "new contact", new_contact_path
+- @contacts.each do |contact|
+  = contact.email
+  = link_to contact.agent.name, agent_path(contact.agent)
+  = link_to "destroy", contact_path(contact), method: "delete"
+  = link_to "edit", edit_contact_path(contact)
+  = link_to "show", contact_path(contact)
+  %p
+
