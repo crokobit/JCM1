@@ -1,3 +1,5 @@
+= link_to "list all agent", agents_path
+= link_to "list all contact", contacts_path
 %h1= @agent.name
 - @agent.contacts.each do |contact|
   %p
